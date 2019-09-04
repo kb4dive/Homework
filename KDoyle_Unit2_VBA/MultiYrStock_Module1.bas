@@ -1,19 +1,23 @@
 Attribute VB_Name = "Module1"
 Sub Calc_StockInfoBySheet()
 
-  
-    Dim ws_num As Integer
-    Dim LastRow As Long
-    Dim starting_ws As Worksheet
-    Dim StartVal As Double      'First Closing Value
+    
+    
+    
     Dim EndVal As Double        'Last Closing Value
-    Dim Volume As Double        'Total Volume
-    Dim TickerCnt As Integer    'Indicator to set starting value for %Change calculations
-    Dim SumRowNum As Integer    'Summary Info Row Number
     Dim GIncrease As Double     'Holder for Greatest Increase
     Dim GDecrease As Double     'Holder for Greatest Decrease
     Dim GVolume As Double       'Holder for Greatest Volume
     Dim GTicker(3) As String    'Holder for ticker symbol
+    Dim LastRow As Long
+    Dim starting_ws As Worksheet
+    Dim StartVal As Double      'First Closing Value
+    Dim SumRowNum As Integer    'Summary Info Row Number
+    Dim TickerCnt As Integer    'Indicator to set starting value for %Change calculations
+    Dim Volume As Double        'Total Volume
+    Dim ws_num As Integer
+   
+      
 
     
     Set starting_ws = ActiveSheet 'remember which worksheet is active in the beginning
@@ -33,12 +37,13 @@ Sub Calc_StockInfoBySheet()
         ThisWorkbook.Worksheets(shNum).Cells(1, 10).Value = "Yearly Change"
         ThisWorkbook.Worksheets(shNum).Cells(1, 11).Value = "Percent Change"
         ThisWorkbook.Worksheets(shNum).Cells(1, 12).Value = "Total Stock Volume"
-        
+        ThisWorkbook.Worksheets(shNum).Cells(1, 15).Value = "Ticker"
+        ThisWorkbook.Worksheets(shNum).Cells(1, 16).Value = "Value"
+                
         ThisWorkbook.Worksheets(shNum).Cells(2, 14).Value = ThisWorkbook.Worksheets(shNum).Name + " Greatest %Increase"
         ThisWorkbook.Worksheets(shNum).Cells(3, 14).Value = ThisWorkbook.Worksheets(shNum).Name + " Greatest %Decrease"
         ThisWorkbook.Worksheets(shNum).Cells(4, 14).Value = ThisWorkbook.Worksheets(shNum).Name + " Greatest Total Volume"
-        ThisWorkbook.Worksheets(shNum).Cells(1, 15).Value = "Ticker"
-        ThisWorkbook.Worksheets(shNum).Cells(1, 16).Value = "Value"
+        
         
          'Set counter for summary rows
         SumRowNum = 2
